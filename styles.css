@@ -10,6 +10,7 @@ button {
     border-radius: 5px;
     padding: 4px;
     margin: 16px;
+    background-color: rgb(200, 100, 200);
 }
 
 .main-div {

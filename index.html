@@ -18,6 +18,8 @@
         const button = document.querySelector("button");
         let girdSize = 16;
 
+        console.log(getRandomColor());
+
         createGrid();
 
         button.addEventListener("click", () => {
@@ -37,12 +39,16 @@
                     const subDiv = document.createElement("div");
                     subDiv.style = "width: " + 100 / girdSize + "%; height: " + 100 / girdSize + "vh; border: 1px lightgray solid;";
                     subDiv.addEventListener("mouseenter", () => {
-                        subDiv.style = "width: " + 100 / girdSize + "%; height: " + 100 / girdSize + "vh; border: 1px lightgray solid; background-color: black;";
+                        subDiv.style = "width: " + 100 / girdSize + "%; height: " + 100 / girdSize + "vh; border: 1px lightgray solid; " + getRandomColor();
 
                     })
                     mainDiv.appendChild(subDiv);
                 }
             }
+        }
+
+        function getRandomColor() {
+            return "background-color: rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ");"
         }
 
     </script>
