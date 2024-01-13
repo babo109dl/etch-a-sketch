@@ -9,17 +9,39 @@
 </head>
 
 <body>
+    <button>change grid size</button>
     <div class="main-div"></div>
 
     <script>
+        const body = document.querySelector("body");
         const mainDiv = document.querySelector(".main-div");
+        const button = document.querySelector("button");
+        let girdSize = 16;
 
-        for (let i = 0; i < 16; i++) {
-            for (let j = 0; j < 16; j++) {
-                const subDiv = document.createElement("div");
-                subDiv.classList.add("cell-" + i + "-" + j);
-                subDiv.style = "width: 6.25%; height: 6.25vh; border: 1px black solid;";
-                mainDiv.appendChild(subDiv);
+        createGrid();
+
+        button.addEventListener("click", () => {
+            girdSize = prompt("Enter the size of the grid (maximum 100)");
+            while (girdSize < 0 || girdSize > 100) {
+                girdSize = prompt("Enter the size of the grid (maximum 100)");
+            }
+            while (mainDiv.firstChild) {
+                mainDiv.removeChild(mainDiv.lastChild);
+            }
+            createGrid();
+        })
+
+        function createGrid() {
+            for (let i = 0; i < girdSize; i++) {
+                for (let j = 0; j < girdSize; j++) {
+                    const subDiv = document.createElement("div");
+                    subDiv.style = "width: " + 100 / girdSize + "%; height: " + 100 / girdSize + "vh; border: 1px lightgray solid;";
+                    subDiv.addEventListener("mouseenter", () => {
+                        subDiv.style = "width: " + 100 / girdSize + "%; height: " + 100 / girdSize + "vh; border: 1px lightgray solid; background-color: black;";
+
+                    })
+                    mainDiv.appendChild(subDiv);
+                }
             }
         }
 

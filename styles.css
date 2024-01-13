@@ -2,10 +2,18 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
+
+}
+
+button {
+    background-color: lightsalmon;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 16px;
 }
 
 .main-div {
+    margin: 0 10%;
     display: flex;
     flex-wrap: wrap;
-} 
+}
